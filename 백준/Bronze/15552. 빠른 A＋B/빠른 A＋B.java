@@ -13,13 +13,10 @@ public class Main {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            list.add(a+b);
+            bw.write(a + b +"\n");
         }
 
-        for (Integer i : list) {
-            bw.write(i+"\n");
-        }
-
+        br.close();
         bw.flush();
         bw.close();
     }
