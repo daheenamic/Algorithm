@@ -5,22 +5,26 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringBuilder sb = new StringBuilder();
+
         StringTokenizer st = new StringTokenizer(br.readLine());
-        StringTokenizer st2 = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
 
-        int a = Integer.parseInt(st.nextToken());
-
-        int[] arr = new int[a];
-
-        for (int i = 0; i < a; i++) {
-            arr[i] = Integer.parseInt(st2.nextToken());
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        int read = 0;
+        
+        while (read < n) {
+            if (st.hasMoreTokens() == false) {
+                st = new StringTokenizer(br.readLine());
+                continue;
+            }
+            int x = Integer.parseInt(st.nextToken());
+            if (x < min) min = x;
+            if (x > max) max = x;
+            read++;
         }
 
-        Arrays.sort(arr);
-        sb.append(arr[0]).append(" ").append(arr[arr.length -1 ]);
-
-        bw.write(sb.toString());
+        bw.write(min + " " + max);
         bw.flush();
     }
 }
