@@ -7,15 +7,15 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
-        String[] arr = new String[28];
+        int[] arr = new int[31];
 
-        for (int i = 0; i < 28; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            arr[i] = st.nextToken();
+        for (int i = 1; i <= 28; i++) {
+            int num = Integer.parseInt(br.readLine());
+            arr[num] = 1;
         }
 
-        for (int i = 1; i <= 30; i++) {
-            if(!Arrays.asList(arr).contains(i+"")) sb.append(i).append("\n");
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i] != 1) sb.append(i).append("\n");
         }
 
         bw.write(sb.toString().trim());
