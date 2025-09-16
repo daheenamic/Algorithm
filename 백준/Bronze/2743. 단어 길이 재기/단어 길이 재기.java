@@ -7,9 +7,9 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
-        char[] c = br.readLine().toCharArray();
+        String s = br.readLine();
 
-        sb.append(c.length);
+        sb.append(s.length());
 
         bw.write(sb.toString());
         bw.flush();
