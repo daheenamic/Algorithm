@@ -1,5 +1,6 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -10,18 +11,23 @@ public class Main {
         int t = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < t; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            String[] arr = st.nextToken().split("");
-            int count = 0;
+            String s = br.readLine();
+            Deque<Character> stack = new ArrayDeque<>();
+            boolean isValid = true;
 
-            for (String s : arr) {
-                count = s.equals("(") ? count + 1 : count - 1;
-                if(count < 0) {
-                    break;
+            for (Character c : s.toCharArray()) {
+                if (c == '(') {
+                    stack.push(c);
+                } else if (c == ')') {
+                    if (stack.isEmpty()) {
+                        isValid = false;
+                        break;
+                    }
+                    stack.pop();
                 }
             }
 
-            if (count == 0) sb.append("YES\n");
+            if (isValid && stack.isEmpty()) sb.append("YES\n");
             else sb.append("NO\n");
         }
 
