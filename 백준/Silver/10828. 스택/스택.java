@@ -20,16 +20,22 @@ public class Main {
 
             boolean isStackEmpty = stack.isEmpty();
 
-            if (s.equals("push")) {
-                stack.push(x);
-            } else if (s.equals("pop")) {
-                sb.append(isStackEmpty? -1 : stack.pop()).append("\n");
-            } else if (s.equals("size")) {
-                sb.append(stack.size()).append("\n");
-            } else if (s.equals("empty")) {
-                sb.append(isStackEmpty ? 1 : 0).append("\n");
-            } else if (s.equals("top")) {
-                sb.append(isStackEmpty ? -1 : stack.peek()).append("\n");
+            switch (s) {
+                case "push":
+                    stack.push(x);
+                    break;
+                case "pop":
+                    sb.append(isStackEmpty? -1 : stack.pop()).append("\n");
+                    break;
+                case "size":
+                    sb.append(stack.size()).append("\n");
+                    break;
+                case "empty":
+                    sb.append(isStackEmpty ? 1 : 0).append("\n");
+                    break;
+                case "top":
+                    sb.append(isStackEmpty ? -1 : stack.peek()).append("\n");
+                    break;
             }
         }
 
