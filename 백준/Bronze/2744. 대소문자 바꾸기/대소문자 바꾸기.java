@@ -11,7 +11,7 @@ public class Main {
         char[] arr =  br.readLine().toCharArray();
         for (char c : arr) {
             if ( Character.isLowerCase(c) ) sb.append(Character.toUpperCase(c));
-            if ( Character.isUpperCase(c) ) sb.append(Character.toLowerCase(c));
+            else sb.append(Character.toLowerCase(c));
         }
 
         System.out.println(sb);
