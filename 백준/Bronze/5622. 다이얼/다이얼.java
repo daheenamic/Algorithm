@@ -3,21 +3,26 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-
-        String[] dial = {"", "", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"};
-
-        String[] num = br.readLine().split("");
+        String s = br.readLine().trim();
+        
+        int[] time = {
+                3, 3, 3,
+                4, 4, 4,
+                5, 5, 5,
+                6, 6, 6,
+                7, 7, 7,
+                8, 8, 8, 8,
+                9, 9, 9,
+                10, 10, 10, 10
+        };
+        
         int result = 0;
-
-        for (String s : num) {
-            for (int i = 1; i < dial.length; i++) {
-                if(dial[i].contains(s)) {
-                    result += i + 1;
-                }
-            }
+        
+        for (int i = 0; i < s.length(); i++ ) {
+            result += time[s.charAt(i) - 'A'];
         }
 
-        System.out.print(result);
+        System.out.println(result);
+        
     }
 }
