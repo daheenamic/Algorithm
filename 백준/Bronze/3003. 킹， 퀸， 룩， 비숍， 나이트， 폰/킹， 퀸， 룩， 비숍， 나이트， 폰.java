@@ -10,8 +10,8 @@ public class Main {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for (int i = 0; i < piece.length; i++) {
-            sb.append(piece[i] - Integer.parseInt(st.nextToken())).append(" ");
+        for (int j : piece) {
+            sb.append(j - Integer.parseInt(st.nextToken())).append(" ");
         }
 
         System.out.println(sb);
