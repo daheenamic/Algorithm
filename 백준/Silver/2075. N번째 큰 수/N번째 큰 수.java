@@ -5,21 +5,22 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        int N = Integer.parseInt(br.readLine());
 
-        int n = Integer.parseInt(br.readLine());
+        // 크기 N의 최소 힙
+        PriorityQueue<Integer> pq = new PriorityQueue<>(N);
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
-
-        for (int i = 0; i < n; i++) {
-            StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());
-            for (int j = 0; j < n; j++) {
-                pq.offer(Integer.parseInt(stringTokenizer.nextToken()));
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < N; j++) {
+                int x = Integer.parseInt(st.nextToken());
+                if (pq.size() < N) {
+                    pq.offer(x);
+                } else if (x > pq.peek()) {
+                    pq.poll();
+                    pq.offer(x);
+                }
             }
-        }
-
-        for (int i = 0; i < n - 1; i++) {
-            pq.poll();
         }
 
         System.out.println(pq.peek());
