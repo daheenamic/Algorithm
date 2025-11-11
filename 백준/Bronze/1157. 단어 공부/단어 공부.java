@@ -3,36 +3,26 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
-        int[] intArr = new int[26];
-        char[] charArr = br.readLine().toUpperCase().toCharArray();
+        int[] count = new int[26];
+        char[] input = br.readLine().toUpperCase().toCharArray();
 
-        for (char c : charArr) {
-            intArr[c - 'A']++;
+        for (char c : input) {
+            count[c - 'A']++;
         }
 
-        int max = Integer.MIN_VALUE;
-        int maxIndex = 0;
+        int max = 0;
+        char result = '?';
 
-        for(int i = 0; i < intArr.length; i++) {
-            if(intArr[i] > max) {
-                max = intArr[i];
-                maxIndex = i;
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] > max) {
+                max = count[i];
+                result = (char) (i + 'A');
+            } else if (count[i] == max && count[i] > 0) {
+                result = '?';
             }
         }
 
-        char result = (char) (maxIndex + 'A');
-
-        int count = 0;
-
-        for (int j : intArr) {
-            if (j == max) count++;
-        }
-
-        if (count > 1) sb.append("?");
-        else sb.append(result);
-        
-        System.out.println(sb);
+        System.out.println(result);
     }
 }
