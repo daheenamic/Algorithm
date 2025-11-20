@@ -2,7 +2,7 @@
 
 class Solution {
     public String solution(String my_string, int k) {
-        return String.valueOf(my_string).repeat(Math.max(0, k));
+        return my_string.repeat(k);
     }
 
     public static void main(String[] args) {
