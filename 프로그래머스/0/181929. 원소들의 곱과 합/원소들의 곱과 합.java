@@ -1,12 +1,13 @@
 class Solution {
     public int solution(int[] num_list) {
         int sum = 0;
-        int cad = 1;
+        int mul = 1;
+        
         for (int num : num_list) {
             sum += num;
-            cad *= num;
+            mul *= num;
         }
         
-        return cad < (sum*sum) ? 1 : 0;
+        return mul < (sum*sum) ? 1 : 0;
     }
 }
