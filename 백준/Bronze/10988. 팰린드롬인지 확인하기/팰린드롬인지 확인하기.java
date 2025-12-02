@@ -6,12 +6,13 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         
         String str = br.readLine();
-        char[] arr = str.toCharArray();
-
-        for (int i = arr.length - 1; i >= 0; i--) {
-            sb.append(arr[i]);
+        boolean isPalindrome = true;
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
         }
-
-        System.out.println(str.contentEquals(sb) ? 1 : 0);
+        System.out.println(isPalindrome ? 1 : 0);
     }
 }
