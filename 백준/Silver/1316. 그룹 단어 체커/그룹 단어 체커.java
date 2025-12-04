@@ -13,22 +13,18 @@ public class Main {
             boolean isGroupWord = true;
 
             for (char ch : str.toCharArray()) {
-                if(ch == before) {
-                    continue;
-                } else {
-                    if(visited[ch - 'a']) {
-                        isGroupWord = false;
-                        break;
-                    } else {
-                        visited[ch - 'a'] = true;
-                    }
+                if(ch == before) continue;
+                
+                if(visited[ch - 'a']) {
+                    isGroupWord = false;
+                    break;
                 }
+                
+                visited[ch - 'a'] = true;
                 before = ch;
             }
-
             if(isGroupWord) cnt++;
         }
-
         System.out.println(cnt);
     }
 }
