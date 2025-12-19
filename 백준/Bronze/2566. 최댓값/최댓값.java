@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -12,28 +11,19 @@ public class Main {
         int row = 0;
         int col = 0;
 
-        // 행 row, 열 cal
-        int[][] arr = new int[9][9];
-
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < 10; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = Integer.parseInt(st.nextToken());
-                if(max < arr[i][j]) {
-                    max = arr[i][j];
+            for (int j = 1; j < 10; j++) {
+                int value = Integer.parseInt(st.nextToken());
+                if(max < value) {
+                    max = value;
                     row = i;
                     col = j;
                 }
             }
         }
         
-        row++;
-        col++;
-
-        sb.append(max).append("\n");
-        sb.append(row).append(" ").append(col);
-
-        System.out.println(sb.toString());
-
+        sb.append(max).append("\n").append(row).append(" ").append(col);
+        System.out.println(sb);
     }
 }
