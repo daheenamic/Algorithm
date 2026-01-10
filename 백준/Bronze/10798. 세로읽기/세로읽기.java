@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -16,10 +15,9 @@ public class Main {
 
         for(int k = 0; k < 15; k++) {
             for(int l = 0; l < 5; l++) {
-                sb.append(arr[l][k]);
+                if(arr[l][k] != ' ') sb.append(arr[l][k]);
             }
         }
-
-        System.out.println(sb.toString().replaceAll(" ", ""));
+        System.out.println(sb);
     }
 }
